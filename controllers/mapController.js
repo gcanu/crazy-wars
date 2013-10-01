@@ -4,10 +4,10 @@ define(['eventEmitter', 'model/map'],function(eventEmitter, Map) {
         var width = args.width;
 
         if(!height || !width)
-        	return;
+            return;
 
         var map = new Map(width, height);
 
-        return map.getJson();
+        this.map = map.getJson();
     });
 });

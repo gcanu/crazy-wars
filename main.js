@@ -1,13 +1,8 @@
 var requirejs = require('./lib/r.js'),
-	fs = require('fs'),
-    http = require('http'),
     config = require('./init.js').config;
 
 // must inspect routes before require's config
 // and pass to require all the routes deps !
-console.log("Loading routes...");
-
-console.log(config);
 var deps = config.getDependencies();
 
 requirejs.config({
@@ -22,6 +17,6 @@ requirejs.config({
 requirejs(['server'],function(Server) {
 	// start server
 	console.log("Starting server...");
-    var server = new Server(process.env.PORT);
+    var server = new Server();
 	server.start();
 });

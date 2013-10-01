@@ -12,6 +12,7 @@ define(['http', 'router'], function(http, router) {
     Server.prototype = {
         start: function() {
             this.httpServer = http.createServer(function (request, response) {
+                console.log(request.url);
                 router.resolve(request, response);
             }).listen(this.port);
         }
